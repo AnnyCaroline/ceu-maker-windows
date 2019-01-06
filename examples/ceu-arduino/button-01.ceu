@@ -1,0 +1,11 @@
+#include "gpio.ceu"
+
+#define OUT 13
+#define IN   2      // UNO/ZERO
+//#define IN  10      // MEGA
+
+emit PIN(OUT, _digitalRead(IN));
+loop do
+    var high/low v = await Pin(IN);
+    emit PIN(OUT, v);
+end
